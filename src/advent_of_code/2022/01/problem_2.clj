@@ -2,9 +2,12 @@
 
 (require '[clojure.string :as str])
 
-(def parsed
-  (->> (slurp "./resources/advent_of_code/2022/day_01.txt")
-       str/split-lines))
-
-
-
+(->> (slurp "./resources/advent_of_code/2022/day_01.txt")
+     str/split-lines
+     (map #(when-not (str/blank? %) (Integer/parseInt %)))
+     (partition-by nil?)
+     (remove #(-> % first nil?))
+     (map #(apply + %))
+     sort
+     (take-last 3)
+     (apply +))
