@@ -1,10 +1,10 @@
 (ns advent-of-code.2022.05.problem-2)
 
-(require '[clojure.string :as str])
+(use 'advent-of-code.2022.05.problem-1)
 
-(def parsed
-  (->> (slurp "./resources/advent_of_code/2022/day_05.txt")
-       str/split-lines))
+(defn crate-mover-9001 [items]
+  items)
 
-
-
+(get-solution (parse-stacks (parsed :stacks-strs))
+              (parse-moves (parsed :move-strs))
+              crate-mover-9001)
